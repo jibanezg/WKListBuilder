@@ -1,0 +1,16 @@
+#!/usr/bin/env bash
+
+rm -rf /wkarmybuilder/node_modules
+
+mv /usr/local/lib/node_modules/wkarmybuilder/node_modules /wkarmybuilder
+
+rm -r /usr/local/lib/node_modules/wkarmybuilder/
+
+if ["$#"==00]; then
+
+  npm install
+  npm start
+
+else
+  exec "$@"
+fi
