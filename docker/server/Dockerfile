@@ -1,12 +1,12 @@
-FROM node:8-alpine
+FROM node:7
 
-RUN mkdir /wkarmybuilder
+RUN mkdir /wkarmybuildertemp
 
-WORKDIR /wkarmybuilder
+RUN npm install -g @angular/cli
 
-COPY ./package.json .
+COPY ./package.json /wkarmybuildertemp
 
-RUN npm install --global --ignore-scripts
+RUN cd /wkarmybuildertemp && npm install
 
 COPY ./docker/server/entrypoint /
 
