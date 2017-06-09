@@ -1,16 +1,20 @@
 #!/usr/bin/env bash
 
-rm -rf /wkarmybuilder/node_modules
+rm -rf ./node_modules
 
-mv /wkarmybuildertemp/node_modules /wkarmybuilder
+mv /wkarmybuildertemp/node_modules .
 
 rm -r /wkarmybuildertemp
 
-cd /wkarmybuilder
-
 if [ "$#" == 0 ]; then
 
-  npm install 
+  npm install
+  mv ./node_modules/materialize-css/css ./src
+  mv ./node_modules/materialize-css/fonts ./src
+  mv ./node_modules/materialize-css/js ./src
+  pushd ./node_modules/materialize-css 
+  grunt monitor & 
+  popd
   npm start
 
 else

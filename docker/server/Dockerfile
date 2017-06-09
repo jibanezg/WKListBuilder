@@ -4,9 +4,17 @@ RUN mkdir /wkarmybuildertemp
 
 RUN npm install -g @angular/cli
 
-COPY ./package.json /wkarmybuildertemp
+RUN npm install -g grunt
 
-RUN cd /wkarmybuildertemp && npm install
+WORKDIR /wkarmybuildertemp
+
+COPY ./package.json .
+
+RUN npm install
+
+RUN cd ./node_modules/materialize-css && npm install
+
+WORKDIR /wkarmybuilder
 
 COPY ./docker/server/entrypoint /
 

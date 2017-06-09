@@ -10,7 +10,8 @@ declare var $:any;
 
 export class ArmyPointsComponent implements OnInit{
 
-    isVisible: boolean = false;
+    isVisible: boolean = true;
+
 
     constructor(
 
@@ -26,15 +27,35 @@ export class ArmyPointsComponent implements OnInit{
         this.isVisible = !this.isVisible;
     }
 
-    setClasses(){
+    pressedEnter(){
+         this.isVisible = !this.isVisible;
+    }
+
+    setClassesInPointLimitButton(){
 
 
         return{
             'btn': true,
             'black': true,
-            'scale-transition': this.isVisible ==true,
-            'scale-out': this.isVisible
+            'scale-transition': true,
+            'scale-out': !this.isVisible,
+            'hide': !this.isVisible
         }
     }
+
+    setClassesInPointLimitInput(){
+
+
+        return{
+            'input-field': true,
+            'col': true,
+            's6': true,
+            'scale-transition': true,
+            'scale-out': this.isVisible,
+            'scale-in': !this.isVisible
+        }
+    }
+
+
 
 }
