@@ -38,8 +38,7 @@ export class ArmyPointsComponent implements OnInit{
             'btn': true,
             'black': true,
             'scale-transition': true,
-            'scale-out': !this.isVisible,
-            'hide': !this.isVisible
+            'scale-out': !this.isVisible
         }
     }
 

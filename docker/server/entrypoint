@@ -9,9 +9,12 @@ rm -r /wkarmybuildertemp
 if [ "$#" == 0 ]; then
 
   npm install
-  mv ./node_modules/materialize-css/css ./src
-  mv ./node_modules/materialize-css/fonts ./src
-  mv ./node_modules/materialize-css/js ./src
+  rm -rf ./src/css
+  rm -rf ./src/fonts
+  rm -rf ./src/js
+  mv ./node_modules/materialize-css/dist/css ./src/
+  mv ./node_modules/materialize-css/dist/fonts ./src/
+  mv ./node_modules/materialize-css/dist/js ./src/
   pushd ./node_modules/materialize-css 
   grunt monitor & 
   popd
