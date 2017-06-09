@@ -1,15 +1,10 @@
-import {Component, OnInit} from "@angular/core";
+import {Component} from "@angular/core";
 
 @Component({
    selector: 'wkheader',
    templateUrl: './header.component.html'
 })
 
-export class HeaderComponent implements OnInit{
-    constructor(
-
-    ){}
-
-    ngOnInit(){}
+export class HeaderComponent {
 
 }

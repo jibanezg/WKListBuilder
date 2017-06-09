@@ -1,20 +1,18 @@
-import { ModuleWithProviders, NgModule } from '@angular/core';
-import { BrowserModule } from '@angular/platform-browser';
-import { RouterModule } from '@angular/router';
+import { NgModule } from '@angular/core';
 
-import {AppComponent} from "./app.component"
-import {HeaderComponent} from "./shared"
+import {AppComponent} from "./app.component";
+import {BrowserModule } from '@angular/platform-browser';
+import {HeaderComponent, ArmyPointsComponent} from "./shared";
 
-const rootRouting: ModuleWithProviders = RouterModule.forRoot([], { useHash: true });
 
 @NgModule({
   declarations: [
     AppComponent,
-    HeaderComponent
+    HeaderComponent,
+    ArmyPointsComponent
   ],
   imports: [
-    BrowserModule,
-    rootRouting
+    BrowserModule
   ],
   bootstrap: [AppComponent]
 })
