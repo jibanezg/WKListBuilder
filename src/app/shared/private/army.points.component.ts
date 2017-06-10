@@ -11,7 +11,7 @@ declare var $:any;
 export class ArmyPointsComponent implements OnInit{
 
     isVisible: boolean = true;
-
+    isDisplayNone: boolean = false;
 
     constructor(
 
@@ -23,12 +23,21 @@ export class ArmyPointsComponent implements OnInit{
     }
 
     clicked(event){
-
         this.isVisible = !this.isVisible;
     }
 
     pressedEnter(){
-         this.isVisible = !this.isVisible;
+        this.isVisible = !this.isVisible;
+    }
+
+    getHideAfterTimeout():boolean{
+
+        let hide: boolean;
+
+        setTimeout(function() {
+            hide = this.isVisible;
+        }, 2000);
+        return hide;
     }
 
     setClassesInPointLimitButton(){
@@ -38,7 +47,8 @@ export class ArmyPointsComponent implements OnInit{
             'btn': true,
             'black': true,
             'scale-transition': true,
-            'scale-out': !this.isVisible
+            'scale-out': !this.isVisible,
+            'hide': this.getHideAfterTimeout()
         }
     }
 
@@ -51,10 +61,10 @@ export class ArmyPointsComponent implements OnInit{
             's6': true,
             'scale-transition': true,
             'scale-out': this.isVisible,
-            'scale-in': !this.isVisible
+            'scale-in': !this.isVisible,
+            'hide': this.getHideAfterTimeout()
+
         }
     }
-
-
 
 }
