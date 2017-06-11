@@ -48,7 +48,7 @@ export class ArmyPointsComponent implements OnInit{
             'black': true,
             'scale-transition': true,
             'scale-out': !this.isVisible,
-            'hide': this.getHideAfterTimeout()
+            'hide': !this.getHideAfterTimeout()
         }
     }
 
@@ -62,7 +62,7 @@ export class ArmyPointsComponent implements OnInit{
             'scale-transition': true,
             'scale-out': this.isVisible,
             'scale-in': !this.isVisible,
-            'hide': this.getHideAfterTimeout()
+            'hide': !this.getHideAfterTimeout()
 
         }
     }
