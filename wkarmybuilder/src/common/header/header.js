@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import Nav from 'react-materialize';
+import {Nav} from 'react-materialize';
 
 export default class Header extends Component {
   render() {
