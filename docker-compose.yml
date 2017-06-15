@@ -1,0 +1,8 @@
+web:  
+  build: .
+  command: sh -c 'npm install; npm start --host 0.0.0.0'
+  ports: 
+    - '3000:3000'
+  volumes:
+    - ./wkarmybuilder/src:/wkarmybuilder/src
+    - ./wkarmybuilder/public:/wkarmybuilder/public
