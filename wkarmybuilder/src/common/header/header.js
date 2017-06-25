@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import {Navbar, NavItem, Input} from 'react-materialize';
+import {Navbar, NavItem, Input, Button} from 'react-materialize';
 
 export default class Header extends Component {
 
@@ -16,30 +16,36 @@ export default class Header extends Component {
     if(this.state.inputOn){
       return (
       <NavItem>
-        <Input placeholder="Point Limit" onClick={this.handleClickOnPointLabel}>
+        <Input placeholder="Point Limit" onKeyDown={(e)=>this.handleOnEnterPointInput(e)}>
         </Input>
       </NavItem>);
     }else if(this.state.labelOn){
       return(
-      <NavItem className="hidden">
-        <Input className="white-text" defaultValue="/2000" disabled>
-        </Input>
+      <NavItem>
+        <Button onClick={this.handleClickOnPointLabel}>/2000</Button>
       </NavItem>);
     }
   }
 
   toogleLabelAndInput(){
-    this.setState(!this.state.inputOn);
-    this.setState(!this.state.labelOn);
+    this.setState({inputOn:!this.state.inputOn});
+    this.setState({labelOn:!this.state.labelOn});
   }
 
-  handleClickOnPointLabel(e){
+  handleClickOnPointLabel(){
     this.toogleLabelAndInput();
+  }
+
+  handleOnEnterPointInput(e){
+    console.log(this,e);
+    if(e.keyCode===13){
+      this.toogleLabelAndInput();
+    }
   }
 
   render() {
     return (
-      <div className="Bla">    
+      <div>    
         <Navbar className="black" right>
            {this.showHidePointLimit()} 
         </Navbar>
